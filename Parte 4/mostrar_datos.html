@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Datos de Local Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .data-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            overflow-y: auto;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="data-container">
+        <h2>Datos en Local Storage</h2>
+        <div id="dataOutput"></div>
+    </div>
+
+    <script>
+        // Función para mostrar todos los datos de localStorage
+        function mostrarDatos() {
+            const dataOutput = document.getElementById("dataOutput");
+            dataOutput.innerHTML = ""; // Limpiar el contenido previo
+
+            if (localStorage.length === 0) {
+                dataOutput.innerHTML = "<p>No hay datos almacenados en Local Storage.</p>";
+                return;
+            }
+
+            // Recorre todos los elementos en localStorage
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+
+                // Intenta analizar como JSON si es posible
+                let parsedValue;
+                try {
+                    parsedValue = JSON.parse(value);
+                } catch {
+                    parsedValue = value; // Si no es JSON, usa el valor original
+                }
+
+                // Mostrar la clave y el valor en la página
+                const dataItem = document.createElement("div");
+                dataItem.innerHTML = `<p><span class="highlight">${key}:</span> ${JSON.stringify(parsedValue, null, 2)}</p>`;
+                dataOutput.appendChild(dataItem);
+            }
+        }
+
+        // Llamar a la función para mostrar los datos al cargar la página
+        window.onload = mostrarDatos;
+    </script>
+</body>
+</html>

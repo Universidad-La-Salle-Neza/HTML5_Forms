@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: green;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,7 +16,7 @@
             margin: 0;
         }
         .form-container {
-            background-color: white;
+            background-color: #DDA0DD;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,6 +29,8 @@
         label {
             display: block;
             margin-bottom: 5px;
+            font-style: oblique;
+            color: rgb(0, 0, 0);
         }
         input, select, textarea {
             width: 100%;
@@ -52,6 +54,9 @@
         }
         button:hover {
             background-color: #0056b3;
+        }
+        #label_telefono{
+            color: #007BFF;
         }
     </style>
 </head>
@@ -85,7 +90,7 @@
 
             <!-- Input de teléfono -->
             <div class="form-group">
-                <label for="telefono">Teléfono:</label>
+                <label for="telefono"id="label_telefono">Teléfono:</label>
                 <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" title="Debe tener 10 dígitos numéricos.">
             </div>
 

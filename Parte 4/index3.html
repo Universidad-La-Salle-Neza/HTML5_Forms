@@ -106,6 +106,12 @@
                 <input type="radio" id="otro" name="genero" value="otro">
                 <label for="otro">Otro</label>
             </div>
+            <div class="form-group">
+                <label for="tiposangre">tipo de sangre:</label>
+                <input type="text" id="tiposangre" name="tiposangre" required>
+            
+
+            </div>
             <button type="submit">Enviar</button>
         </form>
     </div>
@@ -119,6 +125,7 @@
         <p><span class="highlight">País:</span> <span id="confirmPais"></span></p>
         <p><span class="highlight">Comentarios:</span> <span id="confirmComentarios"></span></p>
         <p><span class="highlight">Género:</span> <span id="confirmGenero"></span></p>
+        <p><span class="highlight">Tipo de sangre:</span> <span id="confirmtiposangre"></span></p>
         <button id="confirmButton">Confirmar</button>
         <button id="cancelButton">Cancelar</button>
     </div>
@@ -130,6 +137,7 @@
         <p><span class="highlight">Edad:</span> <span id="resultEdad"></span></p>
         <p><span class="highlight">Teléfono:</span> <span id="resultTelefono"></span></p>
         <p><span class="highlight">País:</span> <span id="resultPais"></span></p>
+        <p><span class="highlight">Tipo de Sangre:</span> <span id="resulttiposangre"></span></p>
         <p><span class="highlight">Comentarios:</span> <span id="resultComentarios"></span></p>
         <p><span class="highlight">Género:</span> <span id="resultGenero"></span></p>
     </div>
@@ -143,6 +151,7 @@
                 edad: document.getElementById("edad").value,
                 telefono: document.getElementById("telefono").value,
                 pais: document.getElementById("pais").value,
+                tiposangre: document.getElementById("tiposangre").value,
                 comentarios: document.getElementById("comentarios").value,
                 genero: document.querySelector('input[name="genero"]:checked') ? document.querySelector('input[name="genero"]:checked').value : ""
             };
@@ -158,6 +167,7 @@
                 document.getElementById("edad").value = savedData.edad;
                 document.getElementById("telefono").value = savedData.telefono;
                 document.getElementById("pais").value = savedData.pais;
+                document.getElementById("tiposangre").value = savedData.tiposangre;
                 document.getElementById("comentarios").value = savedData.comentarios;
                 if (savedData.genero) {
                     document.querySelector(`input[name="genero"][value="${savedData.genero}"]`).checked = true;
@@ -179,6 +189,7 @@
             document.getElementById("confirmEdad").textContent = document.getElementById("edad").value;
             document.getElementById("confirmTelefono").textContent = document.getElementById("telefono").value;
             document.getElementById("confirmPais").textContent = document.getElementById("pais").value;
+            document.getElementById("confirmtiposangre").textContent = document.getElementById("tiposangre").value;
             document.getElementById("confirmComentarios").textContent = document.getElementById("comentarios").value;
 
             let genero = document.querySelector('input[name="genero"]:checked');
@@ -195,6 +206,7 @@
             document.getElementById("resultEdad").textContent = document.getElementById("confirmEdad").textContent;
             document.getElementById("resultTelefono").textContent = document.getElementById("confirmTelefono").textContent;
             document.getElementById("resultPais").textContent = document.getElementById("confirmPais").textContent;
+            document.getElementById("resulttiposangre").textContent = document.getElementById("confirmtiposangre").textContent;
             document.getElementById("resultComentarios").textContent = document.getElementById("confirmComentarios").textContent;
             document.getElementById("resultGenero").textContent = document.getElementById("confirmGenero").textContent;
 
